@@ -1,5 +1,6 @@
 package Pages;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.apache.log4j.Logger;
@@ -64,6 +65,8 @@ public class CalculatorPage {
 	@FindBy(id = "processingArea")
 	public WebElement processingArea;
 	
+	@FindBy(id = "clear")
+	public WebElement clear;
 	
 	
 	public void launchApp()
@@ -154,9 +157,21 @@ public void clickNum(String no)
 
 	public void CE()
 	{
-
 		try {
-			
+			clear.click();
+            assertTrue(processingArea.getText().isEmpty());			
+			}
+			catch(Exception e1)
+			{
+				log.error("\n Failed to perform action exception.Exception Occured ->"+e1.getMessage());
+			}	
+	}
+
+	public void enterNum()
+	{
+		try {
+			one.click();
+            assertTrue(!processingArea.getText().isEmpty());			
 			}
 			catch(Exception e1)
 			{

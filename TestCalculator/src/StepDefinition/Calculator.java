@@ -27,7 +27,7 @@ public class Calculator {
              
     }		
 
-    @Given("^Perform the subtraction of \"([^\"]*)\" and \"([^\"]*)\" equals to \"([^\\\"]*)\"$")
+    @And("^Perform the subtraction of \"([^\"]*)\" and \"([^\"]*)\" equals to \"([^\\\"]*)\"$")
     public void subtraction(String no1,String no2,String no3 ) throws PendingException 							
     {	
     	log.info("Performing the subtraction");
@@ -35,7 +35,7 @@ public class Calculator {
     	
     }		
 
-    @Given("^Perform the division of \"([^\"]*)\" and \"([^\"]*)\" equals to \"([^\\\"]*)\" $")
+    @And("^Perform the division of \"([^\"]*)\" and \"([^\"]*)\" equals to \"([^\\\"]*)\" $")
     public void division(String no1,String no2,String no3 ) throws PendingException 							
     {	
     	log.info("Performing the division");
@@ -44,11 +44,22 @@ public class Calculator {
     }		
 
     
-    @Given("^Perform the CE operation$")
+    @And("^Perform the CE operation$")
     public void CE( ) throws PendingException 							
     {	
     	log.info("Performing the CE operation");
     	cal.CE();
     	
     }
+
+    @And("^Enter any number$")
+    public void enterNumber() throws PendingException 							
+    {	
+    	log.info("Entering any number");
+    	cal.enterNum();
+    	
+    	
+    }
+
+    
 }

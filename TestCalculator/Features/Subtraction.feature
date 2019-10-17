@@ -1,10 +1,9 @@
-@tag
-Feature: Reset functionality on login page of Application 
+@Subtract
+Feature: Subtraction 
 
 @Sub_TC_001
 Scenario Outline: Verification of positive scenario of subtraction function 
 Given Launch the application	
-When Check for presence of minus symbol		
 And Perform the subtraction of "<number_1>" and "<number_2>" equals to "<expected>"
 
 Examples:
@@ -18,7 +17,7 @@ Examples:
 @Sub_TC_002 
 Scenario Outline: Verification of negative scenario for subtraction function 
 Given Launch the application			
-Given Perform the subtraction of "<number_1>" and "<number_2>" 
+And Perform the subtraction of "<number_1>" and "<number_2>" 
 
 Examples:
       | number_1 | number_2        |expected|
@@ -32,7 +31,7 @@ Examples:
 Scenario Outline: Verification of boundary cases for subtraction functionality                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    SD ECXDSW
  
 Given Launch the application			
-Given Perform the subtraction of "<number_1>" and "<number_2>" 
+And Perform the subtraction of "<number_1>" and "<number_2>" 
 
 Examples:
       | number_1 | number_2        |expected|

@@ -1,10 +1,10 @@
-@tag
-Feature: Reset functionality on login page of Application 
+@Division
+Feature: Division 
 
 @Div_TC_001
 Scenario Outline: Verification of positive scenario of division function 
 Given Launch the application			
-Given Perform the division of "<number_1>" and "<number_2>" equals to "<expected>"
+And Perform the division of "<number_1>" and "<number_2>" equals to "<expected>"
 
 Examples:
       | number_1 | number_2        | expected|
@@ -15,7 +15,7 @@ Examples:
 @Div_TC_002 
 Scenario Outline: Verification of negative scenario for division function 
 Given Launch the application			
-Given Perform the division of "<number_1>" and "<number_2>" 
+And Perform the division of "<number_1>" and "<number_2>" 
 
 Examples:
       | number_1 | number_2        |expected|
@@ -29,7 +29,7 @@ Examples:
 Scenario Outline: Verification of boundary cases for division functionality                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    SD ECXDSW
  
 Given Launch the application			
-Given Perform the division of "<number_1>" and "<number_2>" 
+And Perform the division of "<number_1>" and "<number_2>" 
 
 Examples:
       | number_1 | number_2        |expected|
