@@ -5,8 +5,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 
 import Actions.actions;
 import DriverManager.driverInitialize;
@@ -14,7 +17,7 @@ import DriverManager.driverInitialize;
 public class CalculatorPage {
 	
 	Logger log = Logger.getLogger(CalculatorPage.class);
-	
+	WebDriver driver;
 	
 	@FindBy(id = "minus")
 	public WebElement minus;
@@ -35,8 +38,8 @@ public class CalculatorPage {
 	@FindBy(id = "two")
 	public WebElement two;
 	
-	@FindBy(id = "three")
-	public WebElement three;
+	@FindBy(how=How.XPATH, using="//input[@type='email'][@name='email']") 
+    public WebElement three;
 	
 	
 	@FindBy(id = "four")
@@ -69,7 +72,13 @@ public class CalculatorPage {
 	public WebElement clear;
 	
 	
-	public void launchApp()
+	
+	public CalculatorPage(WebDriver driver) {
+		this.driver=driver;
+		PageFactory.initElements(driver,this);
+	}
+	
+	public static void launchApp()
 	{
 		driverInitialize.getDriver("Chrome");
 		new actions().navigate("https://www.online-calculator.com/full-screen-calculator/");
@@ -102,7 +111,8 @@ public void clickNum(String no)
 		break;
 
 	case "3":
-	    three.click(); 
+	    log.info("\n Inside 3");
+	    new actions().click(three);
 		break;
 
 	case "4":

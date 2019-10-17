@@ -16,14 +16,14 @@ import cucumber.api.java.en.When;
 public class Calculator {
 				
 	Logger log = Logger.getLogger(Calculator.class);
-	 CalculatorPage cal = new CalculatorPage();
-     
+	
+	CalculatorPage cal;
     @Given("^Launch the application$")				
     public void open_the_Firefox_and_launch_the_application() throws Throwable							
     {	
        log.info("\n Launching the calculator application");
-       new CalculatorPage().launchApp();
-		
+       CalculatorPage.launchApp();
+       cal = new CalculatorPage(driverInitialize.driver);
              
     }		
 
