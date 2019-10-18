@@ -7,11 +7,11 @@ Feature: Subtraction
     And Perform the subtraction of "<number_1>" and "<number_2>" equals to "<expected>"
 
     Examples: 
-      | number_1 | number_2 | expected |
-      |      100 |       20 |       80 |
-      |       20 |       25 |       -5 |
-      |       -1 |       20 |      -21 |
-      |        1 |      -20 |       21 |
+      | number_1 | number_2 | expected    |
+      |      3   |       2  |       1     |
+      #|       20 |       25 |       -5 |
+      #|       -1 |       20 |      -21 |
+      #|        1 |      -20 |       21 |
 
   @Sub_TC_002
   Scenario Outline: Verification of negative scenario for subtraction function

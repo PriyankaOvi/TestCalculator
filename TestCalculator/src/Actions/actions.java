@@ -8,31 +8,28 @@ import Pages.CalculatorPage;
 
 public class actions {
 	Logger log = Logger.getLogger(actions.class);
+
 	public actions() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void click(WebElement element)
-	{
-		
+	public void click(WebElement element) {
 		element.click();
-		
+
 	}
-	
-	public boolean isPresent(WebElement element)
-	{
+
+	public boolean isPresent(WebElement element) {
 		return element.isDisplayed();
-		
+
 	}
-	public void close()
-	{
+
+	public void close() {
 		driverInitialize.driver.quit();
-		
+
 	}
-	
-	public void navigate(String url)
-	{
-		  driverInitialize.driver.navigate().to(url);
-	
+
+	public void navigate(String url) {
+		driverInitialize.driver.navigate().to(url);
+
 	}
 }
