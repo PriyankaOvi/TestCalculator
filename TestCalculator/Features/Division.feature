@@ -4,6 +4,7 @@ Feature: Division
   @Div_TC_001
   Scenario Outline: Verification of positive scenario of division function
     Given Launch the application
+    And Check the presence of devide sign
     And Perform the division of "<number_1>" and "<number_2>" equals to "<expected>"
 
     Examples: 
@@ -14,6 +15,7 @@ Feature: Division
   @Div_TC_002
   Scenario Outline: Verification of negative scenario for division function
     Given Launch the application
+    And Check the presence of devide sign
     And Perform the division of "<number_1>" and "<number_2>"
 
     Examples: 
@@ -25,6 +27,7 @@ Feature: Division
   @Div_TC_003
   Scenario Outline: Verification of boundary cases for division functionality                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    SD ECXDSW
     Given Launch the application
+    And Check the presence of devide sign
     And Perform the division of "<number_1>" and "<number_2>"
 
     Examples: 

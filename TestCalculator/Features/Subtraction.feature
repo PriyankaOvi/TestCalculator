@@ -4,6 +4,7 @@ Feature: Subtraction
   @Sub_TC_001
   Scenario Outline: Verification of positive scenario of subtraction function
     Given Launch the application
+    And Check the presence of minus sign
     And Perform the subtraction of "<number_1>" and "<number_2>" equals to "<expected>"
 
     Examples: 
@@ -16,6 +17,7 @@ Feature: Subtraction
   @Sub_TC_002
   Scenario Outline: Verification of negative scenario for subtraction function
     Given Launch the application
+    And Check the presence of minus sign
     And Perform the subtraction of "<number_1>" and "<number_2>"
 
     Examples: 
@@ -27,6 +29,7 @@ Feature: Subtraction
   @Sub_TC_003
   Scenario Outline: Verification of boundary cases for subtraction functionality                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    SD ECXDSW
     Given Launch the application
+    And Check the presence of minus sign
     And Perform the subtraction of "<number_1>" and "<number_2>"
 
     Examples: 

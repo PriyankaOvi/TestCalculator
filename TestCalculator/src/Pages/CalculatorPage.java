@@ -171,5 +171,26 @@ public class CalculatorPage {
 			log.error("\n Failed to perform action exception.Exception Occured ->" + e1.getMessage());
 		}
 	}
+	
+	
+	public void enterSplChar() {
+		try {
+			plus.click();
+			assertTrue(!processingArea.getText().isEmpty());
+		} catch (Exception e1) {
+			log.error("\n Failed to perform action exception.Exception Occured ->" + e1.getMessage());
+		}
+	}
+	public void isElementPresent(String sign) {
+		if(sign.equalsIgnoreCase("minus"))
+		{
+			minus.isDisplayed();
+		}else if(sign.equalsIgnoreCase("devide")){
+			division.isDisplayed();
+		}else {
+			clear.isDisplayed();
+		}
+		
+	}
 
 }

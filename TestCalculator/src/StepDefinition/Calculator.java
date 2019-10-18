@@ -23,6 +23,28 @@ public class Calculator {
 		CalculatorPage.launchApp();
 
 	}
+	
+	@And("^Check the presence of minus sign$")
+	public void checkSgn() throws Throwable {
+		log.info("\n Checking the minus sign presence");
+		cal.isElementPresent("minus");
+
+	}
+
+	@And("^Check the presence of devide sign$")
+	public void checkSign() throws Throwable {
+		log.info("\n Checking the devide sign presence");
+		cal.isElementPresent("devide");
+
+	}
+	
+
+	@And("^Check the presence of CE sign$")
+	public void check_Sign() throws Throwable {
+		log.info("\n Checking the clear sign presence");
+		cal.isElementPresent("clear");
+
+	}
 
 	@And("^Perform the subtraction of \"([^\"]*)\" and \"([^\"]*)\" equals to \"([^\\\"]*)\"$")
 	public void subtraction(String no1, String no2, String no3) throws PendingException {
@@ -51,5 +73,13 @@ public class Calculator {
 		cal.enterNum();
 
 	}
+
+	@And("^Enter any special character$")
+	public void enterSplChar() throws PendingException {
+		log.info("Entering any spl char");
+		cal.enterSplChar();
+	}
+
+	 
 
 }
