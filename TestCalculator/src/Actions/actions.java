@@ -15,21 +15,17 @@ public class actions {
 
 	public void click(WebElement element) {
 		element.click();
-
 	}
 
 	public boolean isPresent(WebElement element) {
 		return element.isDisplayed();
-
 	}
 
 	public void close() {
 		driverInitialize.driver.quit();
-
 	}
 
 	public void navigate(String url) {
 		driverInitialize.driver.navigate().to(url);
-
 	}
 }

@@ -8,6 +8,8 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
@@ -82,11 +84,12 @@ public class CalculatorPage {
 	public void subtract(String no1, String no2, String no3) {
 		try {
 			clickNum(no1);
-			minus.click();
-			clickNum(no2);
-			equals.click();
-			assertEquals(no3, processingArea.getText());
+			// minus.click();
+			// clickNum(no2);
+			// equals.click();
+			 assertEquals(no3, processingArea.getText());
 		} catch (Exception e1) {
+			// Assert.assertTrue(false);
 			e1.printStackTrace();
 
 			log.error("\n Failed to perform action exception.Exception Occured ->" + e1.getMessage());
@@ -104,7 +107,21 @@ public class CalculatorPage {
 			break;
 
 		case "3":
-			new actions().click(three);
+			// Perform operation "6-6=" -> 
+			driverInitialize.driver.switchTo().frame(driverInitialize.driver.findElement(By.id("fullframe")));
+			// Click on 6
+			Actions builder = new Actions(driver);
+			Action drawAction = (Action) builder.moveToElement(three).click().moveByOffset(20, 40).click().build();
+			drawAction.perform();
+			//Click on -
+			Action drawaction = (Action) builder.moveToElement(three).click().moveByOffset(40, 10).click().build();
+			drawaction.perform();
+			// Click on 6
+			Action draw_Action = (Action) builder.moveToElement(three).click().moveByOffset(20, 40).click().build();
+			draw_Action.perform();
+			//Click on =
+			Action drawAct = (Action) builder.moveToElement(three).click().moveByOffset(100, 5).click().build();
+			drawAct.perform();
 			break;
 
 		case "4":
@@ -150,6 +167,7 @@ public class CalculatorPage {
 			equals.click();
 			assertEquals(no3, processingArea.getText());
 		} catch (Exception e1) {
+			Assert.assertTrue(false);
 			log.error("\n Failed to perform action exception.Exception Occured ->" + e1.getMessage());
 		}
 	}
@@ -159,6 +177,7 @@ public class CalculatorPage {
 			clear.click();
 			assertTrue(processingArea.getText().isEmpty());
 		} catch (Exception e1) {
+			Assert.assertTrue(false);
 			log.error("\n Failed to perform action exception.Exception Occured ->" + e1.getMessage());
 		}
 	}
@@ -171,26 +190,32 @@ public class CalculatorPage {
 			log.error("\n Failed to perform action exception.Exception Occured ->" + e1.getMessage());
 		}
 	}
-	
-	
+
 	public void enterSplChar() {
 		try {
 			plus.click();
 			assertTrue(!processingArea.getText().isEmpty());
 		} catch (Exception e1) {
+			Assert.assertTrue(false);
 			log.error("\n Failed to perform action exception.Exception Occured ->" + e1.getMessage());
 		}
 	}
+
 	public void isElementPresent(String sign) {
-		if(sign.equalsIgnoreCase("minus"))
-		{
-			minus.isDisplayed();
-		}else if(sign.equalsIgnoreCase("devide")){
-			division.isDisplayed();
-		}else {
-			clear.isDisplayed();
+		try {
+			if (sign.equalsIgnoreCase("minus")) {
+				minus.isDisplayed();
+			} else if (sign.equalsIgnoreCase("devide")) {
+				division.isDisplayed();
+			} else {
+				clear.isDisplayed();
+			}
+		} catch (Exception e1) {
+			Assert.assertTrue(false);
+			log.error("\n Failed to perform action exception.Exception Occured ->" + e1.getMessage());
+
 		}
-		
+
 	}
 
 }

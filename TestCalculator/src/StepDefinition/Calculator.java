@@ -27,7 +27,7 @@ public class Calculator {
 	@And("^Check the presence of minus sign$")
 	public void checkSgn() throws Throwable {
 		log.info("\n Checking the minus sign presence");
-		cal.isElementPresent("minus");
+		//cal.isElementPresent("minus");
 
 	}
 
