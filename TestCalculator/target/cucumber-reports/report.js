@@ -33,11 +33,16 @@ formatter.step({
 });
 formatter.step({
   "line": 7,
+  "name": "Check the presence of minus sign",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 8,
   "name": "Perform the subtraction of \"\u003cnumber_1\u003e\" and \"\u003cnumber_2\u003e\" equals to \"\u003cexpected\u003e\"",
   "keyword": "And "
 });
 formatter.examples({
-  "line": 9,
+  "line": 10,
   "name": "",
   "description": "",
   "id": "subtraction;verification-of-positive-scenario-of-subtraction-function;",
@@ -48,7 +53,7 @@ formatter.examples({
         "number_2",
         "expected"
       ],
-      "line": 10,
+      "line": 11,
       "id": "subtraction;verification-of-positive-scenario-of-subtraction-function;;1"
     },
     {
@@ -57,79 +62,9 @@ formatter.examples({
         "2",
         "1"
       ],
-      "line": 11,
+      "line": 12,
       "id": "subtraction;verification-of-positive-scenario-of-subtraction-function;;2"
     }
   ],
   "keyword": "Examples"
-});
-formatter.before({
-  "duration": 75804340630,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 11,
-  "name": "Verification of positive scenario of subtraction function",
-  "description": "",
-  "id": "subtraction;verification-of-positive-scenario-of-subtraction-function;;2",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 4,
-      "name": "@Sub_TC_001"
-    },
-    {
-      "line": 1,
-      "name": "@Subtract"
-    }
-  ]
-});
-formatter.step({
-  "line": 6,
-  "name": "Launch the application",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 7,
-  "name": "Perform the subtraction of \"3\" and \"2\" equals to \"1\"",
-  "matchedColumns": [
-    0,
-    1,
-    2
-  ],
-  "keyword": "And "
-});
-formatter.match({
-  "location": "Calculator.open_the_Firefox_and_launch_the_application()"
-});
-formatter.result({
-  "duration": 34975390676,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "3",
-      "offset": 28
-    },
-    {
-      "val": "2",
-      "offset": 36
-    },
-    {
-      "val": "1",
-      "offset": 50
-    }
-  ],
-  "location": "Calculator.subtraction(String,String,String)"
-});
-formatter.result({
-  "duration": 197940481,
-  "status": "passed"
-});
-formatter.after({
-  "duration": 2212858,
-  "status": "passed"
-});
 });

@@ -19,6 +19,7 @@ public class Calculator {
 
 	@Given("^Launch the application$")
 	public void open_the_Firefox_and_launch_the_application() throws Throwable {
+		System.out.print("\n\n\n Hi");
 		log.info("\n Launching the calculator application");
 		CalculatorPage.launchApp();
 

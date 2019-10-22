@@ -24,7 +24,7 @@ public class Hooks {
 		log.info("\n Starting the test execution !!");
 
 		try (InputStream io = new FileInputStream(
-				new File("C:\\Users\\Pratip Dasgupta\\eclipse-workspace\\TestCalculator\\config\\config.properties"))) {
+				new File(System.getProperty("user.dir")+"\\config\\config.properties"))) {
 			prop.load(io);
 		} catch (Exception ex) {
 			log.error("\n Exception Occured -> " + ex.getStackTrace());

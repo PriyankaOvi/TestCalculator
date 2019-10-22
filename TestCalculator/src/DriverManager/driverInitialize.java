@@ -11,7 +11,8 @@ public class driverInitialize {
 	{
 		if(browser.equalsIgnoreCase("chrome"))
 		{
-			System.setProperty("webdriver.chrome.driver","C:\\Users\\Pratip Dasgupta\\Downloads\\chromedriver_win32\\chromedriver.exe");
+			System.out.print("\n****************************************************\n"+System.getProperty("user.dir"));
+			System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"\\lib\\chromedriver.exe");
 		   	driver = new ChromeDriver();
 			//driver.manage().window().maximize();
 		}else if(browser.equalsIgnoreCase("Firefox"))
