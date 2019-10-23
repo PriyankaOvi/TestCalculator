@@ -24,7 +24,7 @@ public class Calculator {
 		CalculatorPage.launchApp();
 
 	}
-	
+
 	@And("^Check the presence of minus sign$")
 	public void checkSgn() throws Throwable {
 		log.info("\n Checking the minus sign presence");
@@ -38,7 +38,6 @@ public class Calculator {
 		cal.isElementPresent("devide");
 
 	}
-	
 
 	@And("^Check the presence of CE sign$")
 	public void check_Sign() throws Throwable {
@@ -80,7 +79,5 @@ public class Calculator {
 		log.info("Entering any spl char");
 		cal.enterSplChar();
 	}
-
-	 
 
 }

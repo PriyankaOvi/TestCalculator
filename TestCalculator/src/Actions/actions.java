@@ -14,18 +14,36 @@ public class actions {
 	}
 
 	public void click(WebElement element) {
-		element.click();
+		try {
+			element.click();
+		} catch (Exception e) {
+			log.error("\n Exception Occured -> " + e.getStackTrace());
+		}
 	}
 
 	public boolean isPresent(WebElement element) {
-		return element.isDisplayed();
+		boolean flag = false;
+		try {
+			flag = element.isDisplayed();
+		} catch (Exception e) {
+			log.error("\n Exception Occured -> " + e.getStackTrace());
+		}
+		return flag;
 	}
 
 	public void close() {
-		driverInitialize.driver.quit();
+		try {
+			driverInitialize.driver.quit();
+		} catch (Exception e) {
+			log.error("\n Exception Occured -> " + e.getStackTrace());
+		}
 	}
 
 	public void navigate(String url) {
-		driverInitialize.driver.navigate().to(url);
+		try {
+			driverInitialize.driver.navigate().to(url);
+		} catch (Exception e) {
+			log.error("\n Exception Occured -> " + e.getStackTrace());
+		}
 	}
 }

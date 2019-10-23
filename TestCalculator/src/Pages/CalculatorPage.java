@@ -2,7 +2,6 @@ package Pages;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -11,9 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-
 import Actions.actions;
 import DriverManager.driverInitialize;
 import StepDefinition.Hooks;
@@ -21,8 +18,6 @@ import StepDefinition.Hooks;
 public class CalculatorPage {
 
 	static Logger log = Logger.getLogger(CalculatorPage.class.getName());
-
-	WebDriver driver;
 
 	@FindBy(id = "minus")
 	public WebElement minus;
@@ -44,7 +39,6 @@ public class CalculatorPage {
 
 	@FindBy(xpath = "//canvas[@id='canvas']")
 	public WebElement three;
-
 	@FindBy(id = "four")
 	public WebElement four;
 
@@ -72,6 +66,8 @@ public class CalculatorPage {
 	@FindBy(id = "clear")
 	public WebElement clear;
 
+	WebDriver driver;
+
 	public CalculatorPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -82,75 +78,70 @@ public class CalculatorPage {
 	}
 
 	public void subtract(String no1, String no2, String no3) {
-		try {
-			clickNum(no1);
+		try {			
+			for(char c : no1.toCharArray())
+			{
+				clickNum(c);
+			}
 			// minus.click();
 			// clickNum(no2);
-			// equals.click();
-			 assertEquals(no3, processingArea.getText());
-		} catch (Exception e1) {
-			// Assert.assertTrue(false);
+			// equals.click();			
+			//assertEquals(no3, processingArea.getText());
+		} catch (Exception e1) {			
 			e1.printStackTrace();
-
 			log.error("\n Failed to perform action exception.Exception Occured ->" + e1.getMessage());
 		}
 	}
 
-	public void clickNum(String no) throws Exception {
-		switch (no) {
+	public void clickNum(Character no) throws Exception {
+		switch (no.toString()) {
 		case "1":
 			one.click();
 			break;
-
 		case "2":
 			two.click();
 			break;
-
 		case "3":
-			// Perform operation "6-6=" -> 
+			// Perform operation "6-6=" ->
 			driverInitialize.driver.switchTo().frame(driverInitialize.driver.findElement(By.id("fullframe")));
 			// Click on 6
 			Actions builder = new Actions(driver);
 			Action drawAction = (Action) builder.moveToElement(three).click().moveByOffset(20, 40).click().build();
 			drawAction.perform();
-			//Click on -
+			// Click on -
 			Action drawaction = (Action) builder.moveToElement(three).click().moveByOffset(40, 10).click().build();
 			drawaction.perform();
 			// Click on 6
 			Action draw_Action = (Action) builder.moveToElement(three).click().moveByOffset(20, 40).click().build();
 			draw_Action.perform();
-			//Click on =
+			// Click on =
 			Action drawAct = (Action) builder.moveToElement(three).click().moveByOffset(100, 5).click().build();
 			drawAct.perform();
 			break;
-
 		case "4":
 			four.click();
 			break;
-
 		case "5":
 			five.click();
 			break;
-
 		case "6":
 			six.click();
 			break;
-
 		case "7":
 			seven.click();
-			break;
-
+    		break;
 		case "8":
 			eight.click();
 			break;
 		case "9":
 			nine.click();
 			break;
-
 		case "0":
 			zero.click();
 			break;
-
+		case ".":
+			zero.click();
+			break;
 		default:
 			System.out.print("No correct value");
 			break;
@@ -159,11 +150,10 @@ public class CalculatorPage {
 	}
 
 	public void divide(String no1, String no2, String no3) {
-
 		try {
-			clickNum(no1);
+			//clickNum(no1);
 			division.click();
-			clickNum(no2);
+			//clickNum(no2);
 			equals.click();
 			assertEquals(no3, processingArea.getText());
 		} catch (Exception e1) {
@@ -204,7 +194,7 @@ public class CalculatorPage {
 	public void isElementPresent(String sign) {
 		try {
 			if (sign.equalsIgnoreCase("minus")) {
-				minus.isDisplayed();
+				minus.isDisplayed();				
 			} else if (sign.equalsIgnoreCase("devide")) {
 				division.isDisplayed();
 			} else {
@@ -213,9 +203,6 @@ public class CalculatorPage {
 		} catch (Exception e1) {
 			Assert.assertTrue(false);
 			log.error("\n Failed to perform action exception.Exception Occured ->" + e1.getMessage());
-
-		}
-
 	}
-
+ }
 }

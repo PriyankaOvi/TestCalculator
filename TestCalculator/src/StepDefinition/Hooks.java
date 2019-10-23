@@ -10,6 +10,7 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import DriverManager.driverInitialize;
+import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 
@@ -35,7 +36,8 @@ public class Hooks {
 	}
 
 	@After
-	public void afterScenario() {
+	public void afterScenario(Scenario obj) {
+		obj.write("Completed the test execution !!");
 		log.info("\n Completed the test execution");
 	}
 
